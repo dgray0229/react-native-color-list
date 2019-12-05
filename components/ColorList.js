@@ -67,14 +67,15 @@ export default class ColorList extends Component {
                       data={availableColors}
                       keyExtractor={(item, i) => item.color.toString()}
                       renderItem={({item}) => {
-                          console.log(item.color);
                           return (
                               <ColorButton backgroundColor={item.color}
-                                           onSelect={ () => navigate('Details', { color: item.color }) } />
+                                           onSelect={ () => navigate('Details', { color: item.color }) }
+                              />
                           );
                       }}
                       ListHeaderComponent={() => (
-                          <ColorForm onNewColor={this.newColor} />
+                          <ColorForm onNewColor={this.newColor}
+                                     navigation={this.props.navigation} />
                       )}
             />
         );
